@@ -9,8 +9,7 @@ public abstract class AutomataFinito {
         this.numEstados = num;
         this.tamAlfabeto = alf;
     }
-    public AutomataFinito(int numEstados, boolean[] finales, int tamAlfabeto) {
-        super();
+    public AutomataFinito(int numEstados, int tamAlfabeto, boolean[] finales) {
         this.numEstados = numEstados;
         this.finales = finales;
         this.tamAlfabeto = tamAlfabeto;

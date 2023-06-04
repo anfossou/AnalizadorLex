@@ -10,7 +10,7 @@ public class AutomataFinitoMatriz extends AutomataFinito {
     }
 
     public AutomataFinitoMatriz(int numEstados, boolean[] finales, int tamAlfabeto, int[][] matriz) {
-        super(numEstados, finales, tamAlfabeto);
+        super(numEstados, tamAlfabeto,  finales);
         this.matriz = matriz;
     }
 

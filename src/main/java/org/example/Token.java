@@ -5,7 +5,8 @@ public class Token {
     private Integer[] lexema;
 
     public Token(String id, Integer[] lx){
-
+        this.idToken = id;
+        this.lexema = lx;
     }
 
     public String getIdToken() {
