@@ -20,14 +20,15 @@ public class AnalizadorLexico {
         this.tokens = new HashMap<>();
     }
 
-    public AnalizadorLexico(int[] cadena, AutomataFinito A) {
+    public AnalizadorLexico(int[] cadena, AutomataFinito A, Map<Integer, String> tokens) {
         this.cadena = cadena;
         this.A = A;
         this.posActual = 0;
-        this.tokens = new HashMap<>();
+        this.tokens = tokens;
         this.historico = new ArrayList<>();
     }
 
+    //Devuelve el siguiente Token o nulo si no se pueden extraer más tokens de la cadena.
     public Token nextToken() {
 
         if (hasMoreTokens()) { // Verifica si hay más tokens por extraer en la cadena
@@ -66,6 +67,7 @@ public class AnalizadorLexico {
     }
 
 
+    //Si hay más tokens por analizar devuelve true y falso en caso contrario.
     public boolean hasMoreTokens(){
         /*int e=0;
         for(int i=0; i<this.cadena.length;i++){
@@ -78,25 +80,26 @@ public class AnalizadorLexico {
         return this.posActual < this.cadena.length;
     }
 
-    public String getHistorico(){
-        String h = "HISTORIAL DE TOKENS: ";
-        for(int i = 0;i<this.historico.size()-1;i++){
-            h += this.historico.get(i).getLexema();
-        }
-        return h;
+    //Devuelve el historial de tokens
+    public List<Token> getHistorico(){
+        return this.historico;
     }
 
+
+    //Resetea el analizador lexico
     public void reset(){
         posActual = 0;
         historico.clear();
     }
 
+    //Introduce una nueva cadena a analizar
     public void nuevaCadena(int[] cad){
         this.cadena = cad;
         this.posActual = 0;
         this.historico.clear();
     }
 
+    //Finaliza el analisis devolviendo una listacon los tokens que quedan por reconocer
     public List<Token> finalizarAnalisis(){
         List<Token> lt = new ArrayList<>();
         while(this.hasMoreTokens()){

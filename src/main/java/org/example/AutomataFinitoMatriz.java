@@ -14,6 +14,7 @@ public class AutomataFinitoMatriz extends AutomataFinito {
         this.matriz = matriz;
     }
 
+    //Devuelve la correspondiente entrada de la matriz
     @Override
     public int transicion(int estado, int letra) {
         return this.matriz[estado][letra];

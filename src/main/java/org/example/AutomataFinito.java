@@ -5,10 +5,12 @@ public abstract class AutomataFinito {
     private boolean[] finales;
     private int tamAlfabeto;
 
+    //Constructor de Automata finito
     public AutomataFinito(int num, int alf) {
         this.numEstados = num;
         this.tamAlfabeto = alf;
     }
+    //Constructor de Automata finito
     public AutomataFinito(int numEstados, int tamAlfabeto, boolean[] finales) {
         this.numEstados = numEstados;
         this.finales = finales;
@@ -45,9 +47,11 @@ public abstract class AutomataFinito {
         else return false;
     }
 
+    //Función abstracta de transición
     public abstract int transicion(int estado, int letra);
 
 
+    //Completa la extensión de transición
     public int cierreTransicion(int estado, int cadena[]){
         //Consumir la cadena mientras que no de -1 y sino hacer un break.
         int t=estado;
@@ -60,11 +64,10 @@ public abstract class AutomataFinito {
         return t;
     }
 
-    //perteneceLenguaje: Es el que recibe una cadena que se tiene que consumir entera y acabar en un estado Final
-
+    //Es el que recibe una cadena que se tiene que consumir entera y acabar en un estado Final
     public boolean perteneceLenguaje(int cadena[]){
         int e = cierreTransicion(0,cadena);
-        if (e != 1 && esEstadoFinal(e)){
+        if (e != -1 && esEstadoFinal(e)){
             return true;
         }
         return false;

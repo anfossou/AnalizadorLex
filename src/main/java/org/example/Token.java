@@ -9,10 +9,12 @@ public class Token {
         this.lexema = lx;
     }
 
+    //Devuelve idToken
     public String getIdToken() {
         return this.idToken;
     }
 
+    //Devuelve el lexema del token
     public Integer[] getLexema() {
         return this.lexema;
     }
